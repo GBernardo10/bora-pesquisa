@@ -1,5 +1,6 @@
 package br.com.bandtec.borapesquisa.models;
 
+import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -12,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Document
-public class AnimaisModel {
+public class EventosModel {
 
     @Id
     public ObjectId _id;
@@ -20,11 +21,11 @@ public class AnimaisModel {
     @Indexed(name = "nome")
     public String nome;
 
-    @Indexed(name = "raca")
-    public String raca;
+    @Indexed(name = "descricao")
+    public String descricao;
 
-    @Indexed(name = "especie")
-    public String especie;
+    @Indexed(name = "participantes")
+    public List<Usuarios> participantes;
 
     public String get_id() {
         return _id.toHexString();
